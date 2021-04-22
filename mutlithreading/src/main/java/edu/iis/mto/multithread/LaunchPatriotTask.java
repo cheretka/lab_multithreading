@@ -4,7 +4,7 @@ package edu.iis.mto.multithread;
 class LaunchPatriotTask implements Runnable {
 
     private Scud enemyMissle;
-    private int rocketCount;
+    private final int rocketCount;
     private PatriotBattery battery;
 
     public LaunchPatriotTask(Scud enemyMissle, int rocketCount, PatriotBattery battery) {

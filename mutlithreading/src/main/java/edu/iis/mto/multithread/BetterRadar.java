@@ -4,7 +4,7 @@ import java.util.concurrent.Executor;
 
 public class BetterRadar {
 
-    private int rocketCount;
+    private final int rocketCount;
     private PatriotBattery battery;
     private Executor executor;
 
