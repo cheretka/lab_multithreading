@@ -29,7 +29,7 @@ class BetterRadarTest {
         enemyMissle = new Scud();
     }
 
-    @RepeatedTest(100)
+    @RepeatedTest(10)
     void when_TenRocketsInRadar_Expect_CallLaunchPatriotTenTimes() {
         rocketCount = 10;
         BetterRadar radar = new BetterRadar(rocketCount, batteryMock, executor);
@@ -38,7 +38,7 @@ class BetterRadarTest {
         verify(batteryMock, times(rocketCount)).launchPatriot(enemyMissle);
     }
 
-    @RepeatedTest(100)
+    @RepeatedTest(10)
     void when_LessThanOneRocketInRadar_Expect_CallLaunchPatriotOnes() {
         rocketCount = 0;
         BetterRadar radar = new BetterRadar(rocketCount, batteryMock, executor);
