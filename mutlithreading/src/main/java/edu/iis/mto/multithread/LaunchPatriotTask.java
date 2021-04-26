@@ -20,3 +20,4 @@ class LaunchPatriotTask implements Runnable {
         }
     }
 }
+

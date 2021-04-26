@@ -21,13 +21,6 @@ public class BetterRadar {
     }
 
     private void launchPatriot(Scud enemyMissle, int rocketCount) {
-
-        Runnable launchPatriotTask = () -> {
-            for (int i = 0; i < rocketCount; i++) {
-                battery.launchPatriot(enemyMissle);
-            }
-        };
-
-        executor.execute(launchPatriotTask);
+        executor.execute(new LaunchPatriotTask(enemyMissle, rocketCount, battery));
     }
 }
