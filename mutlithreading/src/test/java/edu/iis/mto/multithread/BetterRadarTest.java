@@ -19,28 +19,31 @@ class BetterRadarTest {
     @Mock
     private PatriotBattery batteryMock;
 
+
     @RepeatedTest(100)
     void when_TenRocketsInRadar_Expect_CallLaunchPatriotTenTimes() {
         Executor executor = Runnable::run;
         int rocketCount = 10;
+
         BetterRadar radar = new BetterRadar(rocketCount, batteryMock, executor);
 
-        Scud enemyMissle = new Scud();
-        radar.notice(enemyMissle);
+        Scud enemyMissile = new Scud();
+        radar.notice(enemyMissile);
 
-        verify(batteryMock, times(rocketCount)).launchPatriot(enemyMissle);
+        verify(batteryMock, times(rocketCount)).launchPatriot(enemyMissile);
     }
 
     @RepeatedTest(100)
     void when_LessThanOneRocketInRadar_Expect_CallLaunchPatriotOnes() {
         Executor executor = Runnable::run;
-        int rocketCount = 10;
+        final int rocketCount = 0;
+
         BetterRadar radar = new BetterRadar(rocketCount, batteryMock, executor);
 
-        Scud enemyMissle = new Scud();
-        radar.notice(enemyMissle);
+        Scud enemyMissile = new Scud();
+        radar.notice(enemyMissile);
 
-        verify(batteryMock, atLeastOnce()).launchPatriot(enemyMissle);
+        verify(batteryMock, atLeastOnce()).launchPatriot(enemyMissile);
     }
 
 }
